@@ -121,3 +121,12 @@ provider and MCP configs, `v2/credentials.json`, and backups can contain tokens
 or API keys.
 Never print, commit, upload, or include them in diagnostic evidence. See
 [docs/secrets.md](docs/secrets.md).
+
+## Source maintenance checks
+
+`just check` validates the retained public contracts, workflow files and source
+history. `just verify` runs the complete source check. CI prepares Python and
+native audit tools from `.github/workflows/ci.yml` and the archive/member hashes in
+`.github/ci-tools.json`; local checks require those tools on `PATH`.
+These checks do not execute ZCode, authenticate a provider, update vendor files or
+publish a release.
